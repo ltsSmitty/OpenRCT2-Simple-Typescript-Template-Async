@@ -14,7 +14,7 @@
 		"outDir": "out",
 		"strict": true,
 		"target": "es5",
-		"lib": [ "es5" ]
+		"lib": [ "es5", "ES2015.Promise"]
 	},
 	"include": [
 		"./lib/**/*.ts",

@@ -4,7 +4,8 @@ import typescript from "@rollup/plugin-typescript";
 import { exec } from "child_process";
 import { homedir } from "os";
 import { promisify } from "util";
-
+import inject from "@rollup/plugin-inject";
+import path from "path";
 
 const options =
 {
@@ -70,6 +71,9 @@ const config = {
 	},
 	treeshake: "smallest",
 	plugins: [
+		inject({
+			Promise: [path.resolve("src/polyfills/promisePolyfill.ts"), "PromisePolyfill"],
+		  }),
 		resolve(),
 		typescript(),
 		terser({
